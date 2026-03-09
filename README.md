@@ -20,6 +20,34 @@ Agent  →  mcp-browse (MCP server)  →  UDP DNS query for _mcp.example.com TXT
 
 No HTTP registry in the loop. The DNS infrastructure **is** the registry.
 
+## Install
+
+```bash
+npm install -g mcp-www
+```
+
+Or use directly with `npx`:
+
+```bash
+npx mcp-www
+```
+
+### Claude Code / MCP Client Config
+
+Add to your MCP client config (e.g., `.mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "mcp-browse": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["mcp-www"]
+    }
+  }
+}
+```
+
 ## Key Design Points
 
 - **Uses UDP DNS (port 53) for lookups** — the lightest possible network primitive. No TCP handshake, no TLS negotiation, no HTTP overhead. A single UDP packet out, a single packet back.
