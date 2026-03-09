@@ -180,9 +180,9 @@ Feedback, criticism, and alternative approaches are welcome — open an issue or
 ## Related
 
 - [Model Context Protocol Specification](https://spec.modelcontextprotocol.io)
-- [MCP Discussion #2334](https://github.com/modelcontextprotocol/specification/discussions/2334)
-- [MCP PR #2127](https://github.com/modelcontextprotocol/specification/pull/2127)
-- [MCP SEP #1959](https://github.com/nicobailon/mcp-seps/blob/main/SEP/1959/README.md)
+- [DNS TXT records for organisation-scoped registry discovery](https://github.com/modelcontextprotocol/modelcontextprotocol/discussions/2334) — Discussion #2334
+- [DNS-native MCP discovery: a zero-infrastructure alternative](https://github.com/modelcontextprotocol/modelcontextprotocol/discussions/2368) — Discussion #2368
+- [SEP-2127: MCP Server Cards — HTTP Server Discovery via .well-known](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127)
 
 ## License
 
