@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "mcp-browse": "dist/index.js"
+    "mcp-www": "dist/index.js"
   },
   "files": [
     "dist",
