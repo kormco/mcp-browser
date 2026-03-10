@@ -1,5 +1,6 @@
+#!/usr/bin/env node
 /**
- * mcp-browse
+ * mcp-www
  *
  * A lightweight MCP server that performs DNS-based discovery of MCP services
  * using UDP lookups. No registry server needed.
@@ -24,7 +25,7 @@ function parseMcpTxtRecord(txtRecords: string[][]): Record<string, string> {
   const result: Record<string, string> = {};
 
   // Parse semicolon-delimited key=value pairs
-  // e.g. "v=mcp1; endpoint=https://...; public=true"
+  // e.g. "v=mcp1; endpoint=https://...; auth=oauth2"
   const pairs = fullRecord.split(";").map((s) => s.trim()).filter(Boolean);
 
   for (const pair of pairs) {
@@ -70,7 +71,7 @@ async function inspectMcpServer(url: string): Promise<any> {
       params: {
         protocolVersion: "2024-11-05",
         capabilities: {},
-        clientInfo: { name: "mcp-browse", version: "0.1.0" },
+        clientInfo: { name: "mcp-www", version: "0.1.2" },
       },
     }),
   });
@@ -124,7 +125,7 @@ async function callRemoteTool(
       params: {
         protocolVersion: "2024-11-05",
         capabilities: {},
-        clientInfo: { name: "mcp-browse", version: "0.1.0" },
+        clientInfo: { name: "mcp-www", version: "0.1.2" },
       },
     }),
   });
@@ -164,8 +165,8 @@ async function callRemoteTool(
 // --- Server Setup ---
 const server = new Server(
   {
-    name: "mcp-browse",
-    version: "0.1.0",
+    name: "mcp-www",
+    version: "0.1.2",
   },
   {
     capabilities: {
@@ -387,7 +388,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("mcp-browse server running on stdio");
+  console.error("mcp-www server running on stdio");
 }
 
 main().catch((err) => {
