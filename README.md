@@ -52,6 +52,24 @@ Add to your MCP client config (e.g., `.mcp.json`):
 }
 ```
 
+## Try It
+
+🤖 Use your agent for easy mcp-www installation or follow the manual steps above.  Simply ask it to install mcp-www from npm (many clients require a restart for a new server.)
+
+🚀 **Publish your own MCP server via _dns TXT record** - or -
+
+**[korm.co](https://korm.co)** publishes a live `_mcp` TXT record. You can discover and interact with it end-to-end:
+
+```
+browse_discover("korm.co")      → discovers server, returns tools + resources + prompts
+browse_server("https://mcp.korm.co")  → inspects tools, resources, and prompts
+call_remote_tool("https://mcp.korm.co", "list_articles")  → returns blog articles
+read_remote_resource("https://mcp.korm.co", "korm://bio")  → reads author bio
+get_remote_prompt("https://mcp.korm.co", "recommend-post", { "topic": "AI" })  → gets prompt
+```
+⚠️ korm.co is a construction zone of new services so pardon any dust or temporary infra outages, thanks for your patience.
+
+
 ## Key Design Points
 
 - **Uses UDP DNS (port 53) for lookups** — the lightest possible network primitive. No TCP handshake, no TLS negotiation, no HTTP overhead. A single UDP packet out, a single packet back.
@@ -163,20 +181,6 @@ Get a prompt from a remote MCP server. Use `browse_server` or `browse_discover` 
 }
 ```
 
-## Try It
-
-**Publish your own MCP server via _dns TXT record** - or -
-
-**[korm.co](https://korm.co)** publishes a live `_mcp` TXT record. You can discover and interact with it end-to-end:
-
-```
-browse_discover("korm.co")      → discovers server, returns tools + resources + prompts
-browse_server("https://mcp.korm.co")  → inspects tools, resources, and prompts
-call_remote_tool("https://mcp.korm.co", "list_articles")  → returns blog articles
-read_remote_resource("https://mcp.korm.co", "korm://bio")  → reads author bio
-get_remote_prompt("https://mcp.korm.co", "recommend-post", { "topic": "AI" })  → gets prompt
-```
-NOTE: korm.co is a construction zone of new services so pardon any dust or temporary infra outages, thanks for your patience.
 
 ## Status
 
