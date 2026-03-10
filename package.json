@@ -1,6 +1,6 @@
 {
   "name": "mcp-www",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Lightweight MCP server for DNS-based agent service discovery over UDP. No registry needed.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "build": "tsc",
+    "prepublishOnly": "npm run build",
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts"
   },
@@ -26,8 +27,15 @@
   ],
   "author": "kormco",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kormco/mcp-www.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.0.0"
+    "@modelcontextprotocol/sdk": "^1.27.0"
   },
   "devDependencies": {
     "typescript": "^5.4.0",
