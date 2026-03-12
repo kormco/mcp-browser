@@ -81,6 +81,7 @@ get_remote_prompt("https://mcp.korm.co", "recommend-post", { "topic": "AI" })  â
   v=mcp1; src=https://mcp.example.com; auth=oauth2
   ```
 - **Works with split-horizon DNS** â€” enterprise and private networks can publish internal `_mcp` records visible only inside their network, enabling private service discovery without exposing anything to the public internet.
+- Allows overriding the default system DNS resolver via environment variable. Useful for benchmarking with a local resolver or pointing at a specific DNS infrastructure. MCP_DNS_SERVER=192.168.68.133:5335 npx mcp-www
 
 ## Tools Exposed
 
