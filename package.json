@@ -1,6 +1,6 @@
 {
   "name": "mcp-www",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Lightweight MCP server for DNS-based agent service discovery over UDP. No registry needed.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
