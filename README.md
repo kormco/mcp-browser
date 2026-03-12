@@ -209,7 +209,7 @@ When detected, a prominent warning is surfaced as a separate content block in th
 
 ### Additional considerations
 
-- **No implicit trust** — mcp-www discovers and inspects remote servers, but tool execution (`call_remote_tool`) is always an explicit agent action. The agent must choose to call a tool after reviewing the server manifest.
+- **No implicit trust** — mcp-www discovers and inspects remote servers, but tool execution (`call_remote_tool`) is always an explicit agent action. The agent must choose to call a tool after reviewing the server manifest. Typical MCP initialization discovers tools when MCP servers are configured, not at runtime requiring agents to reason about remote tool invocation.
 - **Split-horizon DNS** — private/internal `_mcp` records are only resolvable within the network they're published on, preventing accidental exposure of internal services.
 - **Unicode normalization** — all domain inputs are NFC-normalized before lookup to prevent equivalent-but-different Unicode representations from bypassing detection.
 
