@@ -72,11 +72,12 @@ install({ domain: "korm.co" }) → generates config to add to your MCP client
 - **Uses UDP DNS (port 53) for lookups** — the lightest possible network primitive. A single UDP packet out, a single packet back.
 - **The DNS infrastructure IS the registry** — no additional servers to deploy, no uptime to maintain, no accounts to create. If you can publish a TXT record, you can advertise your MCP server.
 - **mcp-www is a standard MCP server** — any MCP-compliant agent can use it with zero new client code.
-- **Multiple TXT records supported** — a domain can advertise multiple MCP servers via separate `_mcp` TXT records.
-- **Supports the `_mcp` TXT record convention:**
+- **Multiple TXT records supported** — a domain can publish multiple `_mcp` TXT records, each advertising a different MCP server. For example, a public content server alongside an authenticated API:
   ```
-  v=mcp1; src=https://mcp.example.com; auth=oauth2
+  _mcp.example.com  TXT  "v=mcp1; src=https://mcp.example.com; auth=none"
+  _mcp.example.com  TXT  "v=mcp1; src=https://api.example.com/mcp; auth=oauth2"
   ```
+  `discover` returns all records — the agent decides which to connect to based on auth requirements and capabilities. How agents should select between multiple servers for the same domain is an open question.
 - **Works with split-horizon DNS** — enterprise and private networks can publish internal `_mcp` records visible only inside their network.
 - Allows overriding the default system DNS resolver via environment variable: `MCP_DNS_SERVER=192.168.68.133:5335 npx mcp-www`
 
